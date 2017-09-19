@@ -1,7 +1,38 @@
-<h1 (click)="methode()">{{title}}</h1>
+<h1 (click)="methode()">
+    {{title}}</h1>
+<input type="text" [(ngModel)]="title" [hidden]="inputShown">
 
-<input type="text" [(ngModel)]="title" [hidden]="inputShown" />
-<button (click)="inputShown = !inputShown">Toggle</button>
 
-<input type="number" [(ngModel)]="a"> +
-<input type="number" [(ngModel)]="b"> = {{a+b}}
+<button (click)="toggleInput()">Toggle</button>
+<input type="checkbox" [(ngModel)]="inputShown">
+
+
+<input type="number" [(ngModel)]="a">
+<input type="number" [(ngModel)]="b"> {{a+b}}
+
+<p>
+    <label>Nom :</label>
+    <input type="text" [(ngModel)]="personne.nom">
+</p>
+<p>
+    <label>Prénom :</label>
+    <input type="text" [(ngModel)]="personne.prenom">
+</p>
+<p>
+    <label>Age :</label>
+    <input type="number" [(ngModel)]="personne.age">
+</p>
+<label>J'ai un chien</label>
+<input type="checkbox" [(ngModel)]="chienForm">
+
+<section [hidden]="!chienForm">
+    <p>
+        <label>Nom du Chien :</label>
+        <input type="text" [(ngModel)]="personne.chien.nom">
+    </p>
+    <p>
+        <label>Race du Chien :</label>
+        <input type="text" [(ngModel)]="personne.chien.race">
+    </p>
+</section>
+<button (click)="afficher()">Afficher</button>

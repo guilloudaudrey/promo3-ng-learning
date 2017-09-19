@@ -1,18 +1,35 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-selector: 'app-template',
-templateUrl: './template.component.html',
-
+    /*
+    Le nom de la balise html qui sera liée 
+    à ce component
+    */
+    selector: 'app-template',
+    /*
+    Le chemin vers le fichier html que gère ce component
+    */
+    templateUrl:'./template.component.html'
 })
 export class TemplateComponent {
     title = 'app';
-    
-    
-      methode(){
-        this.title = 'autre chose';
-      }
-    
-      
+    inputShown:boolean = false;
+    personne = {
+        nom: '',
+        prenom: '',
+        age:0,
+        chien: {}
+    };
+
+    afficher() {
+        console.log(this.personne);
     }
-    
+  
+    methode() {
+      this.title = 'autre chose';
+    }
+  
+    toggleInput() {
+      this.inputShown = !this.inputShown;
+    }
+}
