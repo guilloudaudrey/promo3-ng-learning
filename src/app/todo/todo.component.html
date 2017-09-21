@@ -1,13 +1,13 @@
 <ul>
     <li *ngFor="let item of tableau; index as clef">
 
-        {{item}}
+        {{item.message}}
 
-        <button (click)="supprimer(clef)">Supprimer</button>
+        <button (click)="supprimerTodo(clef)">Supprimer</button>
 
     </li>
 </ul>
 
 <input type="text" [(ngModel)]="newTodo">
-<input type="hidden" item.id="table.length">
-<button (click)="ajout()">Ajouter</button>
+
+<button (click)="ajoutTodo()">Ajouter</button>

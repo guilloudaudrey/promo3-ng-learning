@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {CompteurService} from '../shared/compteur.service'
 
 @Component({
     /*
@@ -9,7 +10,8 @@ import {Component} from '@angular/core';
     /*
     Le chemin vers le fichier html que gère ce component
     */
-    templateUrl:'./template.component.html'
+    templateUrl:'./template.component.html',
+    providers: [CompteurService]
 })
 export class TemplateComponent {
     title = 'app';
@@ -20,6 +22,16 @@ export class TemplateComponent {
         age:0,
         chien: {}
     };
+
+    constructor(private compteurService:CompteurService){
+        
+    }
+    
+    ngOnInit() {
+        console.log('template' + this.compteurService.compte);
+        this.compteurService.incrementer();
+        console.log('template' + this.compteurService.compte);
+    }
 
     afficher() {
         console.log(this.personne);

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TodoService} from '../shared/todo.service';
+import { TodoAjaxService } from '../shared/todo-ajax.service';
 
 @Component({
   selector: 'app-todo',
@@ -6,24 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-tableau:string[] = ['a', 'b', 'c'];
+tableau:object[];
 
 newTodo:string;
 
-ajout(){
-this.tableau.push(this.newTodo);
+constructor(private todoService:TodoAjaxService){
+
 }
 
-supprimer(index:number){
-  this.tableau.splice(index, 1);
+ngOnInit() {
+this.todoService.getAllTodo().then((todos) => this.tableau = <object[]>todos);
 }
 
+ajoutTodo(){
+// this.todoService.ajout(this.newTodo);
+}
 
-afficher(){}
+supprimerTodo(index:number){
+  // this.todoService.supprimer(index);
+}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
