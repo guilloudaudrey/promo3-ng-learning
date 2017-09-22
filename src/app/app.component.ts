@@ -7,7 +7,7 @@ import {CompteurService} from './shared/compteur.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-selectedPage = 'boucle';
+selectedPage = 'todo';
 
 constructor(private compteurService:CompteurService){
 
